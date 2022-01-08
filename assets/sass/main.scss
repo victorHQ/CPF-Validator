@@ -1,0 +1,81 @@
+@import './utils.scss';
+
+/* === Reset Global === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    @include organize-center;
+
+    background-color: #07141a;
+    min-height: 100vh;
+}
+
+.container{
+
+    width: 30%;
+    min-width: 450px;
+    margin: 20px auto;
+    padding: 20px;
+
+    border-radius: 6px;
+    overflow: hidden;
+
+    h1 {
+        color: white;
+        font-size: 4rem;
+        text-align: center;
+        opacity: 0.4;
+        margin: 10%;
+    }
+
+    .layout{
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+
+        .inputs{
+
+            display: block;
+            max-height: 44px;
+
+            #cpf-informado {
+                width: 50%;
+                height: 44px;
+                font-size: 15px;
+                border: 2px solid $color-light-gray;
+                padding: 12px;
+                color: #111111;
+                font-weight: 500;
+                border-radius: 5px;
+
+                @include transition;
+        
+                &:focus{
+                    outline: none;
+                    border-color: $color-purple;
+                }
+            }
+        }
+    }
+}
+
+.resultado{
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+
+    display: none;
+}
+
+.isValid { background-color: green; }
+
+.isNotValid { background-color: red; }

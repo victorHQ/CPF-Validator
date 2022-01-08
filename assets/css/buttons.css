@@ -1,0 +1,17 @@
+/* BUTTONS ======================== */
+button {
+  margin-left: 5px;
+  width: 22%;
+  height: 44px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 3px solid #8052ec;
+  color: #8052ec;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 1;
+}

@@ -1,0 +1,79 @@
+/* === Reset Global === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #07141a;
+  min-height: 100vh;
+}
+
+.container {
+  width: 30%;
+  min-width: 450px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.container h1 {
+  color: white;
+  font-size: 4rem;
+  text-align: center;
+  opacity: 0.4;
+  margin: 10%;
+}
+
+.container .layout {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.container .layout .inputs {
+  display: block;
+  max-height: 44px;
+}
+
+.container .layout .inputs #cpf-informado {
+  width: 50%;
+  height: 44px;
+  font-size: 15px;
+  border: 2px solid #d1d3d4;
+  padding: 12px;
+  color: #111111;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.container .layout .inputs #cpf-informado:focus {
+  outline: none;
+  border-color: #8052ec;
+}
+
+.resultado {
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  display: none;
+}
+
+.isValid {
+  background-color: green;
+}
+
+.isNotValid {
+  background-color: red;
+}

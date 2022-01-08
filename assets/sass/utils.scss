@@ -1,0 +1,17 @@
+//colors
+$color-purple: #8052ec;
+$color-pink: #d161ff;
+$color-light-gray: #d1d3d4;
+$color-heavy-purple: #7f5a83;
+
+// Mixins =======================
+@mixin organize-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+//mixins
+@mixin box-shadow{ box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+
+@mixin transition { transition: all 0.3s ease; }
