@@ -53,33 +53,36 @@ class CreateCPF{
       writable: false,
       enumerable: true,
       configurable: false,
-      value: String(CreateCPF.createArrayCpf()),
+      value: String(this.geraCpf()),
     });
   }
 
-  static createArrayCpf(){
-    const create_array = (total, numero) => Array.from(Array(total), () => number_random(numero));
-    const number_random = (number) => (Math.round(Math.random() * number));    
-    const total_array = 9;
-    const n = 9;
-    const [n1, n2, n3, n4, n5, n6, n7, n8, n9] = create_array(total_array, n);
-    let cpfCrated = [];
-    cpfCrated = [n1, n2, n3, n4, n5, n6, n7, n8, n9].slice();
-    cpfCrated = cpfCrated.toString().replace(/,/g, "");
+  geraCpf() {
+    const cpfSemDigito = this.rand();
+    const digito1 = ValidaCPF.geraDigito(cpfSemDigito);
+    const digito2 = ValidaCPF.geraDigito(cpfSemDigito + digito1);
+    const novoCpf = cpfSemDigito + digito1 + digito2;
+    return this.formatCPF(novoCpf);
+  }
 
-    const digito1 = ValidaCPF.geraDigito(cpfCrated);
-    const digito2 = ValidaCPF.geraDigito(cpfCrated + digito1);
-    const novoCPF = cpfCrated + digito1 + digito2;
+  //Create CPF without digits
+  rand() {
+    const min = 100000000; 
+    const max = 999999999;
+    
+    return String(Math.floor(Math.random() * (max - min) + min));
+  }
 
-    return novoCPF;
+  formatCPF(novoCpf){
+    const badchars = /[^\d]/g;
+    const mask = /(\d{3})(\d{3})(\d{3})(\d{2})/;
+    const cpf = novoCpf.replace(badchars, "");
+
+    return cpf.replace(mask, "$1.$2.$3-$4");
   }
 
   showCreatedCPF(){
-    const badchars = /[^\d]/g;
-    const mask = /(\d{3})(\d{3})(\d{3})(\d{2})/;
-    const cpf = this.cpfCriado.replace(badchars, "");
-
-    return cpf.replace(mask, "$1.$2.$3-$4");
+    return this.cpfCriado;
   }
 }
 
